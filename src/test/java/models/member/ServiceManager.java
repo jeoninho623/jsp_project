@@ -28,4 +28,12 @@ public class ServiceManager {
     public JoinService joinService() {
         return new JoinService(joinValidator(), memberDao());
     }
+
+    public LoginValidator loginValidator() {
+        return new LoginValidator(memberDao());
+    }
+
+    public LoginService longinService() {
+        return new LoginService(loginValidator(), memberDao());
+    }
 }
