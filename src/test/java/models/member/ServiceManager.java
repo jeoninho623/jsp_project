@@ -7,7 +7,7 @@ public class ServiceManager {
     private ServiceManager() {}
 
     public static ServiceManager getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new ServiceManager();
         }
 
@@ -19,7 +19,10 @@ public class ServiceManager {
     }
 
     public JoinValidator joinValidator() {
-        return new JoinValidator();
+        JoinValidator validator = new JoinValidator();
+        validator.setMemberDao(memberDao());
+
+        return validator;
     }
 
     public JoinService joinService() {
